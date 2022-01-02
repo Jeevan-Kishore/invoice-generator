@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/generate-invoice.js": {
+    "pages/api/generate-invoice.js": {
       "includeFiles": "views/**"
     }
   }

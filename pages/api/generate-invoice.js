@@ -2,7 +2,6 @@ const ejs = require("ejs");
 const pdf = require("html-pdf");
 const { join } = require('path')
 
-
 export default function handler(req, res) {
     if (req.method === 'POST') {
         ejs.renderFile(join(__dirname, 'views', 'invoice-template.ejs'), {}, (err, data) => {
