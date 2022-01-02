@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/generate-invoice.js": {
+      "includeFiles": "views/**"
+    }
+  }
+}
