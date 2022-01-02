@@ -6,13 +6,14 @@ export default function handler(req, res) {
     if (req.method === 'POST') {
         ejs.renderFile(join(process.cwd(), 'views', 'invoice-template.ejs'), {}, (err, data) => {
             if (err) {
-                console.log(" DEBUG: ", "--------------------------->",join(__dirname, 'views', 'invoice-template.ejs'));
                 res.send(err);
             }
-            console.log(" DEBUG: ", "--------------------------->", data, join(__dirname, 'views', 'invoice-template.ejs'));
-            res.send(data);
+            res.setHeader("Content-Type","application/pdf");
+            pdf.create(data).toBuffer(function(err, buffer){
+                res.send(buffer);
+            });
         });
     } else {
-        // Handle any other HTTP method
+        res.status(400).json({ error: 'Unsupported method' });
     }
 }
