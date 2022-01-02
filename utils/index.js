@@ -3,7 +3,6 @@ const hb = require('handlebars');
 const inlineCss = require('inline-css');
 const chrome = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
-
 module.exports
 async function generatePdf(file, options, callback) {
 
