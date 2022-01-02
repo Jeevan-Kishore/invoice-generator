@@ -8,9 +8,14 @@ export default function handler(req, res) {
             if (err) {
                 res.send(err);
             }
-            res.setHeader("Content-Type","application/pdf");
-            pdf.create(data).toBuffer(function(err, buffer){
-                res.send(buffer);
+            /*res.setHeader("Content-Type","application/pdf");*/
+            pdf.create(data).toFile("report.pdf", function (err, data) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    console.log(res.filename);
+                    res.send("File created successfully");
+                }
             });
         });
     } else {
