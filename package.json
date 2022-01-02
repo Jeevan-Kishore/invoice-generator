@@ -19,6 +19,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "ejs": "^3.1.6",
+    "html-pdf": "^3.0.1",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -28,4 +30,3 @@
     "eslint-config-next": "12.0.7"
   }
 }
-
