@@ -1,8 +1,31 @@
+import React, { useState } from "react";
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+const defaultUserData = {
+  name: "",
+  address: "",
+  amount: "",
+  duration: ""
+};
+
 export default function Home() {
+  const [userData, setUserData] = useState(defaultUserData);
+
+  const onChangeHandler = (e, target) => {
+    const value = e.target.value;
+    setUserData({...userData, ...{[target]: value}});
+  }
+
+  const onClickHandler = async () => {
+    const response = await fetch("/api/generate-invoice", {
+      method: 'POST',
+      body: JSON.stringify({})
+    });
+    console.log(" DEBUG: ", "--------------------------->", response);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,34 +44,14 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <h2>Name:</h2>
-            <p>Enter name</p>
-          </div>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          {
+            Object.keys(defaultUserData).map(item => <div className={styles.card}>
+              <h2>{item}:</h2>
+              <textarea type="text" value={userData[item]} onChange={(e) => onChangeHandler(e, item)}/>
+            </div>)
+          }
         </div>
+        <button className={styles.generateButton} onClick={onClickHandler}>Generate Invoice</button>
       </main>
 
       <footer className={styles.footer}>
