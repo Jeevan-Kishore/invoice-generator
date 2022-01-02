@@ -11,9 +11,10 @@ export default function handler(req, res) {
                 res.send(err);
             }
             const file = { content: data };
-            res.setHeader("Content-Type","application/pdf");
+
             pdf.generatePdf(file, pdfOptions).then(pdfBuffer => {
                 console.log("PDF Buffer:-", pdfBuffer);
+                res.setHeader("Content-Type","application/pdf");
                 res.send(pdfBuffer)
             });
         });
