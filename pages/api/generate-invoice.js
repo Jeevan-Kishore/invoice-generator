@@ -4,7 +4,7 @@ const { join } = require('path')
 
 export default function handler(req, res) {
     if (req.method === 'POST') {
-        ejs.renderFile(join(__dirname, 'views', 'invoice-template.ejs'), {}, (err, data) => {
+        ejs.renderFile(join(process.cwd(), 'views', 'invoice-template.ejs'), {}, (err, data) => {
             if (err) {
                 console.log(" DEBUG: ", "--------------------------->",join(__dirname, 'views', 'invoice-template.ejs'));
                 res.send(err);
