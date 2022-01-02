@@ -35,10 +35,12 @@ async function generatePdf(file, options, callback) {
         });
     }
 
+    console.log(" DEBUG: ", "---------------------------> HERE");
+
     return Promise.props(page.pdf(options))
         .then(async function(data) {
             await browser.close();
-
+            console.log(" DEBUG: ", "---------------------------> THERE");
             return Buffer.from(Object.values(data));
         }).asCallback(callback);
 }
