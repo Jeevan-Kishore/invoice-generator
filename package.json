@@ -2,19 +2,30 @@
   "name": "invoice-generator",
   "version": "1.0.0",
   "description": "Generate ACT invoices",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jeevan-Kishore/invoice-generator.git"
   },
-  "author": "",
+  "author": "Jeevan-Kishore <kishor080@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jeevan-Kishore/invoice-generator/issues"
   },
   "homepage": "https://github.com/Jeevan-Kishore/invoice-generator#readme",
-  "dependencies": {}
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "12.0.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "8.6.0",
+    "eslint-config-next": "12.0.7"
+  }
 }
+
