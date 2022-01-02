@@ -45,7 +45,7 @@ export default function Home() {
 
         <div className={styles.grid}>
           {
-            Object.keys(defaultUserData).map(item => <div className={styles.card}>
+            Object.keys(defaultUserData).map((item, index) => <div key={`${item}-${index}`} className={styles.card}>
               <h2>{item}:</h2>
               <textarea type="text" value={userData[item]} onChange={(e) => onChangeHandler(e, item)}/>
             </div>)
