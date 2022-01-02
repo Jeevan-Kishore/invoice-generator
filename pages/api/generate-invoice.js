@@ -1,5 +1,5 @@
 const ejs = require("ejs");
-const pdf = require('html-pdf-node');
+const pdf = require("../../utils");
 const { join } = require('path')
 
 
