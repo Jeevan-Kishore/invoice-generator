@@ -3,6 +3,7 @@ const hb = require('handlebars');
 const inlineCss = require('inline-css');
 const chrome = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
+
 module.exports
 async function generatePdf(file, options, callback) {
 
@@ -16,11 +17,12 @@ async function generatePdf(file, options, callback) {
 
     const page = await browser.newPage();
 
-    if(file.content) {
-        data = await inlineCss(file.content, {url:"/"});
+    let data;
+    if (file.content) {
+        data = await inlineCss(file.content, {url: "/"});
         console.log("Compiling the template with handlebars")
         // we have compile our code with handlebars
-        const template = hb.compile(data, { strict: true });
+        const template = hb.compile(data, {strict: true});
         const result = template(data);
         const html = result;
 
@@ -30,7 +32,7 @@ async function generatePdf(file, options, callback) {
         });
     } else {
         await page.goto(file.url, {
-            waitUntil:[ 'load', 'networkidle0'], // wait for page to load completely
+            waitUntil: ['load', 'networkidle0'], // wait for page to load completely
         });
     }
 
