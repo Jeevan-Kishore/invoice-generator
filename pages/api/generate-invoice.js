@@ -6,7 +6,7 @@ const { join } = require('path')
 const pdfOptions = { format: 'A4' };
 export default function handler(req, res) {
     if (req.method === 'POST') {
-        ejs.renderFile(join(process.cwd(), 'views', 'invoice-template.ejs'), {}, (err, data) => {
+        ejs.renderFile(join(process.cwd(), 'utils', 'invoice-template.ejs'), {}, (err, data) => {
             if (err) {
                 res.send(err);
             }
