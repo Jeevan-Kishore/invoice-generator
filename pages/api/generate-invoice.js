@@ -6,7 +6,7 @@ const { join } = require('path')
 export default function handler(req, res) {
     if (req.method === 'POST') {
         const { body } = req;
-        console.log(" DEBUG: ", "--------------------------->", body.name);
+        console.log(" DEBUG: ", "--------------------------->", body, typeof body);
         ejs.renderFile(join(process.cwd(), 'utils', 'invoice-template.ejs'), {}, (err, data) => {
             if (err) {
                 res.send(err);
