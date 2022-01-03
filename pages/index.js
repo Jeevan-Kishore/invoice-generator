@@ -21,7 +21,7 @@ export default function Home() {
   const onClickHandler = async () => {
     const response = await fetch("/api/generate-invoice", {
       method: 'POST',
-      body: JSON.stringify({userData})
+      body: JSON.stringify({...userData})
     });
     const blob = await response.blob();
     // It is necessary to create a new blob object with mime-type explicitly set for all browsers except Chrome, but it works for Chrome too.
