@@ -21,7 +21,7 @@ export default function Home() {
   const onClickHandler = async () => {
     const response = await fetch("/api/generate-invoice", {
       method: 'POST',
-      body: JSON.stringify({})
+      body: JSON.stringify({userData})
     });
     const blob = await response.blob();
     // It is necessary to create a new blob object with mime-type explicitly set for all browsers except Chrome, but it works for Chrome too.
@@ -36,7 +36,7 @@ export default function Home() {
 
       let link = document.createElement('a');
       link.href = objUrl;
-      link.download = `ACT-receipt-${new Date()}`;
+      link.download = `ACT-receipt-${new Date().getTime()}`;
       link.click();
 
       // For Firefox it is necessary to delay revoking the ObjectURL.
