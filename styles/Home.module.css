@@ -128,6 +128,9 @@
     width: 100%;
     flex-direction: column;
   }
+  .container {
+    padding: 0;
+  }
 }
 
 .loader{
