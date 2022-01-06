@@ -18,6 +18,7 @@ export default function Home() {
   const [userData, setUserData] = useState(defaultUserData);
   const [month, setMonth] = useState(months[0]);
   const [year, setYear] = useState(years[0]);
+  const [loadingIndicator, setLoadingIndicator] = useState(false);
 
   const onChangeHandler = (e, target) => {
     const value = e.target.value;
@@ -25,6 +26,7 @@ export default function Home() {
   };
 
   const onClickHandler = async () => {
+    setLoadingIndicator(true);
     const response = await fetch("/api/generate-invoice", {
       method: "POST",
       body: JSON.stringify({ ...userData, month, year }),
@@ -49,8 +51,13 @@ export default function Home() {
       setTimeout(() => {
         window.URL.revokeObjectURL(objUrl);
       }, 250);
+      setLoadingIndicator(false);
     }
   };
+
+  if(loadingIndicator){
+    return <div className={styles.loader}>Loading..</div>
+  }
 
   return (
     <div className={styles.container}>
@@ -61,9 +68,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to invoice generator</h1>
+        <h1 className={styles.title}>ACT invoice generator</h1>
 
-        <p className={styles.description}>For education purposes ONLY!</p>
+        <p className={styles.description}>Use for education purposes ONLY!</p>
 
         <div className={styles.grid}>
           {Object.keys(defaultUserData).map((item, index) => (
