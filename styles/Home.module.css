@@ -84,7 +84,6 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   min-width: 300px;
   min-height: 170px;
-  background-color: white;
 }
 
 .card:hover,
@@ -113,7 +112,7 @@
 
 .card select {
   width: 40%;
-  margin: 0 5%;
+  margin-right: 5%;
 }
 
 .logo {

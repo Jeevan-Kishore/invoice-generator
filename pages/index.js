@@ -55,8 +55,8 @@ export default function Home() {
     }
   };
 
-  if(loadingIndicator){
-    return <div className={styles.loader}>Loading..</div>
+  if (loadingIndicator) {
+    return <div className={styles.loader}>Loading..</div>;
   }
 
   return (
@@ -65,6 +65,12 @@ export default function Home() {
         <title>ACT Invoice Generator</title>
         <meta name="description" content="Generated invoices easy!" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,100&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <main className={styles.main}>
@@ -85,14 +91,18 @@ export default function Home() {
           ))}
           <div className={styles.card}>
             <h2>Month & Year</h2>
-            <select value={month} onChange={e => setMonth(e.target.value)}>
+            <select value={month} onChange={(e) => setMonth(e.target.value)}>
               {months.map((monthItem, index) => (
-                <option key={`${monthItem}-${index}`} value={monthItem}>{monthItem}</option>
+                <option key={`${monthItem}-${index}`} value={monthItem}>
+                  {monthItem}
+                </option>
               ))}
             </select>
-            <select value={year} onChange={e => setYear(e.target.value)}>
+            <select value={year} onChange={(e) => setYear(e.target.value)}>
               {years.map((yearItem, index) => (
-                <option key={`${yearItem}-${index}`} value={yearItem}>{yearItem}</option>
+                <option key={`${yearItem}-${index}`} value={yearItem}>
+                  {yearItem}
+                </option>
               ))}
             </select>
           </div>
