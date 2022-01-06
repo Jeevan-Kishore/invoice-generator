@@ -47,10 +47,10 @@
                                             <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">User Id : <%= userId %></td>
                                         </tr>
                                         <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Account No : 102012021139</td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Account No : <%= accountNumber %></td>
                                         </tr>
                                         <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Invoice No. : KA-B1-64262758</td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Invoice No. : KA-B1-<%= Math.floor((Math.random() * 10000000) + 1); %></td>
                                         </tr>
                                         <tr>
                                             <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">GSTIN : 0</td>
@@ -191,11 +191,11 @@
                                         </tr>
                                         <tr style="color:#ffffff;">
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:15px 0 5px 0; text-align: left;">Previous Due (A)</td>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:15px 0 5px 0; text-align: right;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount) %></td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:15px 0 5px 0; text-align: right;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format((((parseFloat(amount)/100)*9)*2).toFixed(2)) %></td>
                                         </tr>
                                         <tr style="color:#ffffff;">
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:5px 0; text-align: left;">Invoice Amount (B)</td>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:5px 0; text-align: right;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount) %></td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:5px 0; text-align: right;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format((((parseFloat(amount)/100)*9)*2).toFixed(2)) %></td>
                                         </tr>
                                         <tr style="color:#ffffff;">
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:5px 0; text-align: left;">Adjustments (C)</td>
@@ -203,7 +203,7 @@
                                         </tr>
                                         <tr style="color:#ffffff;">
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:5px 0; text-align: left;">Payments Received (D)</td>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:5px 0; text-align: right;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount) %></td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:5px 0; text-align: right;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format((((parseFloat(amount)/100)*9)*2).toFixed(2)) %></td>
                                         </tr>
                                         <tr style="color:#ffffff;">
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:5px 0 10px 0; text-align: left;">Balance Amount (A+B-C-D)</td>
@@ -230,7 +230,7 @@
                                         </tr>
                                         <tr style="color:#ffffff; border-top: 1px solid #F16368;">
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:10px 0 10px 0; text-align: left;">Total</td>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:10px 0 10px 0; text-align: right;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount) %></td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:10px 0 10px 0; text-align: right;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format((((parseFloat(amount)/100)*9)*2).toFixed(2)) %></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -281,7 +281,7 @@
                                         <tr height="30px;" bgcolor="#FFFFFF" align="left">
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px;border-bottom: 1px solid #a7a9ac; border-right: 1px solid #a7a9ac;border-left: 1px solid #a7a9ac; text-align:center;"><%= planName %></td>
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px;border-bottom: 1px solid #a7a9ac; border-right: 1px solid #a7a9ac; text-align:center;">01/<%= monthIndex %>/<%= year %></td>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px;border-bottom: 1px solid #a7a9ac; border-right: 1px solid #a7a9ac; text-align:center;">01/<%= monthIndex %>/<%= year %></td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px;border-bottom: 1px solid #a7a9ac; border-right: 1px solid #a7a9ac; text-align:center;"><% if (month !== "Feb") { %>30<% } else { %>29<% } %>/<%= monthIndex %>/<%= year %></td>
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px;border-bottom: 1px solid #a7a9ac; border-right: 1px solid #a7a9ac; text-align:center;">
                                                 <% if (month !== "Feb") { %>
                                                     30
