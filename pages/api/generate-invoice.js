@@ -1,3 +1,5 @@
+const { months } = require("../../utils/constants");
+
 const ejs = require("ejs");
 const pdf = require("../../utils/pdf-util");
 const { join } = require("path");
@@ -6,9 +8,10 @@ export default function handler(req, res) {
   if (req.method === "POST") {
     const { body } = req;
     const postData = JSON.parse(body);
+    const monthIndex = months.indexOf(postData.month) + 1;
     ejs.renderFile(
       join(process.cwd(), "utils", "invoice-template.ejs"),
-      { ...postData },
+      { ...postData, monthIndex },
       (err, data) => {
         if (err) {
           res.send(err);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { months, years } from "../utils/constants";
 
 const defaultUserData = {
   name: "",
@@ -11,10 +12,13 @@ const defaultUserData = {
   mobile: "",
   userId: "",
   accountNumber: "",
+  planName: "ACT Storm",
 };
 
 export default function Home() {
   const [userData, setUserData] = useState(defaultUserData);
+  const [month, setMonth] = useState(months[0]);
+  const [year, setYear] = useState(years[0]);
 
   const onChangeHandler = (e, target) => {
     const value = e.target.value;
@@ -24,7 +28,7 @@ export default function Home() {
   const onClickHandler = async () => {
     const response = await fetch("/api/generate-invoice", {
       method: "POST",
-      body: JSON.stringify({ ...userData }),
+      body: JSON.stringify({ ...userData, month, year }),
     });
     const blob = await response.blob();
     // It is necessary to create a new blob object with mime-type explicitly set for all browsers except Chrome, but it works for Chrome too.
@@ -73,6 +77,19 @@ export default function Home() {
               />
             </div>
           ))}
+          <div className={styles.card}>
+            <h2>Month & Year</h2>
+            <select value={month} onChange={setMonth}>
+              {months.map((monthItem) => (
+                <option value={monthItem}>{monthItem}</option>
+              ))}
+            </select>
+            <select value={year} onChange={setYear}>
+              {years.map((yearItem) => (
+                <option value={yearItem}>{yearItem}</option>
+              ))}
+            </select>
+          </div>
         </div>
         <button className={styles.generateButton} onClick={onClickHandler}>
           Generate Invoice
