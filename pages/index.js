@@ -80,13 +80,13 @@ export default function Home() {
           <div className={styles.card}>
             <h2>Month & Year</h2>
             <select value={month} onChange={setMonth}>
-              {months.map((monthItem) => (
-                <option value={monthItem}>{monthItem}</option>
+              {months.map((monthItem, index) => (
+                <option key={`${monthItem}-${index}`} value={monthItem}>{monthItem}</option>
               ))}
             </select>
             <select value={year} onChange={setYear}>
-              {years.map((yearItem) => (
-                <option value={yearItem}>{yearItem}</option>
+              {years.map((yearItem, index) => (
+                <option key={`${yearItem}-${index}`} value={yearItem}>{yearItem}</option>
               ))}
             </select>
           </div>
