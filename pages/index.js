@@ -7,11 +7,10 @@ import { months, years } from "../utils/constants";
 const defaultUserData = {
   name: "",
   address: "",
-  amount: "",
-  duration: "",
-  mobile: "",
-  userId: "",
-  accountNumber: "",
+  amount: 0,
+  mobile: "0000000000",
+  userId: "000000",
+  accountNumber: "000000",
   planName: "ACT Storm",
 };
 
@@ -79,12 +78,12 @@ export default function Home() {
           ))}
           <div className={styles.card}>
             <h2>Month & Year</h2>
-            <select value={month} onChange={setMonth}>
+            <select value={month} onChange={e => setMonth(e.target.value)}>
               {months.map((monthItem, index) => (
                 <option key={`${monthItem}-${index}`} value={monthItem}>{monthItem}</option>
               ))}
             </select>
-            <select value={year} onChange={setYear}>
+            <select value={year} onChange={e => setYear(e.target.value)}>
               {years.map((yearItem, index) => (
                 <option key={`${yearItem}-${index}`} value={yearItem}>{yearItem}</option>
               ))}
