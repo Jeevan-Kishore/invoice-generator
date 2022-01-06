@@ -13,12 +13,16 @@ export default function handler(req, res) {
         if (err) {
           res.send(err);
         }
-        const file = { content: data };
+
+        res.setHeader("Content-Type", "text/html; charset=UTF-8");
+        res.send(data);
+
+        /*const file = { content: data };
 
         pdf.generatePdf(file, { printBackground: true }).then((pdfBuffer) => {
-          res.setHeader("Content-Type", "application/pdf;charset=utf-8");
+          res.setHeader("Content-Type", "text/html; charset=UTF-8");
           res.send(pdfBuffer);
-        });
+        });*/
       }
     );
   } else {
