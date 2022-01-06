@@ -15,7 +15,7 @@ export default function handler(req, res) {
         }
         const file = { content: data };
 
-        pdf.generatePdf(file).then((pdfBuffer) => {
+        pdf.generatePdf(file, { printBackground: true }).then((pdfBuffer) => {
           res.setHeader("Content-Type", "application/pdf;charset=utf-8");
           res.send(pdfBuffer);
         });
