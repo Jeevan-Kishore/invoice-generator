@@ -24,6 +24,7 @@ async function generatePdf(file, options, callback) {
         const template = hb.compile(data, {strict: true});
         const result = template(data);
         const html = result;
+        console.log(" DEBUG: ", "--------------------------->",html);
 
         // We set the page content as the generated html by handlebars
         await page.setContent(html, {
