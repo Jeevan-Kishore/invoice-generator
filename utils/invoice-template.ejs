@@ -31,29 +31,20 @@
                                         <tr>
                                             <td style="font-family:Arial, Helvetica, sans-serif; font-size:20px; color:#ed3036; font-weight:bold;"><span><img style="height:20px; width:20px; vertical-align:text-top;" alt="profile" src="http://img.actcorp.in/mailers/soaimg/Profile.png"/></span><span style="line-height: 25px;">JEEVAN KISHORE  N</span></td>
                                         </tr>
+                                        <% address.split("\n").forEach((line) => { %>
+                                            <tr>
+                                                <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;"><%= line.toUpperCase() %></td>
+                                            </tr>
+                                        <% }); %>
+
                                         <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">46 SHIVA KRUPA ITI LAYOUT,MUDDANPALYA MALLATHAHALLI</td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Home : 080</td>
                                         </tr>
                                         <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Bangalore</td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Mobile : <%= mobile %></td>
                                         </tr>
                                         <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Karnataka</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">India</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">560056</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Home : 8971775888</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Mobile : 080</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">User Id : 11225583</td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">User Id : <%= userID %></td>
                                         </tr>
                                         <tr>
                                             <td style="font-family:Arial, Helvetica, sans-serif; color: #77787b; font-size: 12px;">Account No : 102012021139</td>
