@@ -109,6 +109,11 @@
   width: 100%;
 }
 
+.card select {
+  width: 40%;
+  margin: 0 5%;
+}
+
 .logo {
   height: 1em;
   margin-left: 0.5rem;

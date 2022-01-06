@@ -44,7 +44,7 @@ export default function Home() {
 
       let link = document.createElement("a");
       link.href = objUrl;
-      link.download = `ACT-receipt-${new Date().getTime()}`;
+      link.download = `ACT-receipt-${month}-${year}`;
       link.click();
 
       // For Firefox it is necessary to delay revoking the ObjectURL.
