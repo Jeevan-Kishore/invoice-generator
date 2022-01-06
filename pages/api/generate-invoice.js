@@ -17,7 +17,7 @@ export default function handler(req, res) {
           res.send(err);
         }
 
-        res.setHeader("Content-Type", "text/html; charset=UTF-8");
+        res.setHeader("Content-Type", "text/html");
         res.send(data);
 
         /*const file = { content: data };
