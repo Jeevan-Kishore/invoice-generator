@@ -139,7 +139,7 @@
                                             <td style="font-size:13px; font-weight:600;">Amount Payable</td>
                                         </tr>
                                         <tr style="background-color:#FFFFFF; color:#77787b; border: 1px solid #77787B;" height="50px">
-                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight: 600;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount) %></td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight: 600;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format((parseFloat(amount) + (((parseFloat(amount)/100)*9)*2)).toFixed(2)) %></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -159,7 +159,7 @@
                                             <td style="font-size:13px; font-weight:600;">Amount After Due Date</td>
                                         </tr>
                                         <tr style="background-color:#FFFFFF; color:#77787b; border: 1px solid #77787B;" height="50px">
-                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight: 600;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(parseFloat(amount) + 100) %></td>
+                                            <td style="font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight: 600;"><%= new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format((parseFloat(amount) + (((parseFloat(amount)/100)*9)*2) + 100).toFixed(2)) %></td>
                                         </tr>
                                     </table>
                                 </td>
