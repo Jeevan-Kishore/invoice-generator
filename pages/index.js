@@ -42,10 +42,12 @@ export default function Home() {
       // For other browsers: create a link pointing to the ObjectURL containing the blob.
       const objUrl = window.URL.createObjectURL(newBlob);
 
-      let link = document.createElement("a");
+      const link = document.createElement("a");
       link.href = objUrl;
       link.download = `ACT-receipt-${month}-${year}`;
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
 
       // For Firefox it is necessary to delay revoking the ObjectURL.
       setTimeout(() => {
