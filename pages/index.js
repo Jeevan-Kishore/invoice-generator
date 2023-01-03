@@ -33,7 +33,7 @@ export default function Home() {
     });
     const blob = await response.blob();
     // It is necessary to create a new blob object with mime-type explicitly set for all browsers except Chrome, but it works for Chrome too.
-    const newBlob = new Blob([blob], { type: "text/html" });
+    const newBlob = new Blob([blob], { type: "application/octetstream" });
 
     // MS Edge and IE don't allow using a blob object directly as link href, instead it is necessary to use msSaveOrOpenBlob
     if (window.navigator && window.navigator.msSaveOrOpenBlob) {
