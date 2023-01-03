@@ -13,7 +13,6 @@ export const months = [
   "Dec",
 ];
 export const years = [
-  "2021",
   "2022",
   "2023",
   "2024",

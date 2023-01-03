@@ -1,7 +1,6 @@
 const { months } = require("../../utils/constants");
 
 const ejs = require("ejs");
-const pdf = require("../../utils/pdf-util");
 const { join } = require("path");
 
 export default function handler(req, res) {
